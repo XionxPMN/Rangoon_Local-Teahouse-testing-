@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0e0b09" />
+  <meta name="description" content="The Rangoon Kitchen - သာကေတမြို့နယ်တွင် အိမ်အပြန်ဆောင်ထမင်းဆက်ဆက်ဆောင်ရွက်ပေးသောဝန်ဆောင်မှု" />
+  <title>The Rangoon Kitchen · ရန်ကုန်မီးဖိုချောင်</title>
+
+  <link rel="icon"             type="image/jpeg" href="{{ url_for('static', filename='asset/RK.jpeg') }}" />
+  <link rel="apple-touch-icon"                   href="{{ url_for('static', filename='asset/RK.jpeg') }}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+Myanmar:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+
+  <!-- ══ LOADING SCREEN ══ -->
+  <div id="loading-screen" role="status" aria-label="Loading">
+    <img src="{{ url_for('static', filename='asset/RK.jpeg') }}" class="loader-icon" alt="The Rangoon Kitchen Logo"
+         onerror="this.style.display='none'" />
+    <div class="loader-name">The Rangoon Kitchen</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+
+  <!-- ══ STICKY NAV ══ -->
+  <div class="sticky-call-bar-outer">
+    <div class="page-shell">
+      <a href="tel:+959XXXXXXXX" class="call-btn-main" aria-label="Call to order">
+        <div class="nav-brand-wrap">
+          <img src="{{ url_for('static', filename='asset/RK.jpeg') }}" class="nav-logo" alt="RK Logo"
+               onerror="this.style.display='none'" />
+          <span class="nav-brand">The Rangoon Kitchen</span>
+        </div>
+        <span class="nav-cta">
+          <svg viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.714-7.78-4.489-8.923.087-.045 2.053-.997 2.053-.997l-3.522-6.796s-1.667.816-2.107 1.031c-3.111 1.517-4.225 6.012-1.393 11.488 3.4 6.577 8.351 9.932 12.926 7.712.44-.215 2.117-1.031 2.117-1.031z"/></svg>
+          ဖုန်းဆက်ပြီး မှာယူရန်
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ MAIN CONTENT ══ -->
+  <div class="page-shell">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-eyebrow">Established · Yangon · 2019</div>
+      <h1 class="hero-title">
+        The Rangoon
+        <em>Kitchen</em>
+      </h1>
+      <p class="hero-myanmar-title">ရန်ကုန်မီးဖိုချောင်</p>
+      <p class="hero-desc">Authentic Myanmar home cooking, crafted with family recipes — delivered warm to your doorstep.</p>
+      <div class="hero-badges">
+        <span class="badge">Heirloom Recipes</span>
+        <span class="badge">Fresh Daily</span>
+        <span class="badge">Cash on Delivery</span>
+      </div>
+    </header>
+
+    <!-- DELIVERY ZONE BANNER -->
+    <div class="zone-banner" role="alert">
+      <svg viewBox="0 0 24 24"><path d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm1 14h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+      <div class="zone-text">
+        <div class="zone-label">Delivery Zone · ပို့ဆောင်သောဒေသ</div>
+        <p class="zone-my">လက်ရှိတွင် <strong>သာကေတမြို့နယ်</strong>အတွင်းသာ ပို့ဆောင်ပေးနိုင်ပါသေးသည်။</p>
+        <p class="zone-en">Currently delivering within <strong>Thaketa Township</strong> only.</p>
+      </div>
+    </div>
+
+    <!-- MENU SECTION -->
+    <section aria-label="Menu">
+      <div class="section-head reveal">
+        <div class="section-head-left">
+          <p class="section-eyebrow">Today's Menu</p>
+          <h2 class="section-title">Order Your Favourite</h2>
+          <p class="section-myanmar">သင်နှစ်သက်ရာ မှာယူပါ</p>
+        </div>
+        <div class="section-count" id="menu-count" aria-hidden="true">00</div>
+      </div>
+
+      <!-- Filter buttons — rebuilt dynamically by app.js -->
+      <div class="menu-filters reveal">
+        <button class="filter-btn active" data-filter="all">All Menu</button>
+        <button class="filter-btn" data-filter="specials">✨ Today's Specials</button>
+        <button class="filter-btn" data-filter="noodles">Noodles</button>
+        <button class="filter-btn" data-filter="curry">Curries</button>
+        <button class="filter-btn" data-filter="salad">Salads</button>
+      </div>
+
+      <!-- Menu cards injected by app.js -->
+      <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <!-- HOW TO ORDER -->
+    <section class="how-section reveal" aria-label="How to order">
+      <div class="how-header">
+        <h2 class="how-title">Two Taps to Your Table</h2>
+        <p class="how-myanmar">နှစ်ချက်နှိပ်ရုံဖြင့် မှာယူနိုင်သည်</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">01</div>
+          <div class="how-step-title">Select From Menu</div>
+          <div class="how-step-my">အစားအစာ ရွေးချယ်ပါ</div>
+          <div class="how-step-desc">Browse our curated menu of traditional dishes below.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">02</div>
+          <div class="how-step-title">Tap Messenger or Call</div>
+          <div class="how-step-my">Messenger (သို့) ဖုန်းဆက်ပါ</div>
+          <div class="how-step-desc">Connect with our kitchen directly. No login required.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">03</div>
+          <div class="how-step-title">Warm Local Delivery</div>
+          <div class="how-step-my">ပူပူနွေးနွေး လာပို့ပါမည်</div>
+          <div class="how-step-desc">Arrives within 45–60 minutes. Cash on delivery.</div>
+        </div>
+      </div>
+    </section>
+
+  
+
+  </div><!-- end .page-shell -->
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-wrap">
+          <img src="{{ url_for('static', filename='asset/RK.jpeg') }}" class="footer-logo-img" alt="RK Logo"
+               onerror="this.style.display='none'" />
+          <div class="footer-logo">The Rangoon Kitchen</div>
+        </div>
+        <div class="footer-my">ရန်ကုန်မီးဖိုချောင်</div>
+        <p class="footer-note">
+          🕐 8:00 AM – 8:00 PM daily<br>
+          📍 Thaketa Township only<br>
+          💵 Cash on delivery · No fees
+        </p>
+      </div>
+      <div class="footer-ctas">
+        <a href="https://m.me/YourPageUsername"
+           class="footer-contact-link footer-link-messenger"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2c-5.522 0-10 4.3-10 9.6 0 5.3 4.478 9.6 10 9.6 1.134 0 2.222-.182 3.23-.518l3.15 1.834c.465.27.994-.176.841-.692l-1.01-3.398c2.192-1.854 3.491-4.468 3.491-7.326 0-5.3-4.478-9.6-10-9.6zm1 12.5l-2.5-2.5-4.5 2.5 5-5.5 2.5 2.5 4.5-2.5-5 5.5z"/></svg>
+          Messenger မှ မှာယူရန်
+        </a>
+        <a href="tel:+959XXXXXXXX"
+           class="footer-contact-link footer-link-phone">
+          <svg viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.714-7.78-4.489-8.923.087-.045 2.053-.997 2.053-.997l-3.522-6.796s-1.667.816-2.107 1.031c-3.111 1.517-4.225 6.012-1.393 11.488 3.4 6.577 8.351 9.932 12.926 7.712.44-.215 2.117-1.031 2.117-1.031z"/></svg>
+          ဖုန်းဆက်ရန် · +959 XX XXX XXXX
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══ -->
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+  <!-- Safety net: force dismiss loader after 3s no matter what -->
+  <script>
+    setTimeout(function () {
+      var s = document.getElementById("loading-screen");
+      if (s) { s.style.opacity = "0"; setTimeout(function(){ if(s.parentNode) s.remove(); }, 600); }
+    }, 3000);
+  </script>
+
+</body>
+</html>
